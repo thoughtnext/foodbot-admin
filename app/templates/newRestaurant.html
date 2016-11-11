@@ -1,0 +1,36 @@
+<div layout="column" ng-cloak class="md-inline-form">
+   <md-toolbar>
+      <div class="md-toolbar-tools theme-bg-color">
+         <span flex></span>
+         <h2>Add A New Restaurant</h1>
+         <span flex></span>
+      </div>
+   </md-toolbar>
+   <md-content layout="row" layout-padding>
+   <div flex-gt-xs="35" hide-xs></div>
+   
+   <div layout="column" flex-gt-xs="30" flex-xs>
+      <md-input-container>
+         <label>Name</label>
+         <input ng-model="restaurant.name">
+      </md-input-container>
+      <md-input-container>
+         <label>Description</label>
+         <input ng-model="restaurant.description" type="text">
+      </md-input-container>
+      <input type = "file" file-model="restaurant.image" accept="image/*"/>
+      <div layout="row">
+      <div flex> </div>
+      <div flex="40">
+         <md-button class="theme-bg-color" ng-click="back()" aria-label="back">Back</md-button>
+      </div>
+      <div flex="40">
+         <md-button class="theme-bg-color" ng-click="uploadRestaurantImage()" aria-label="add">Add Restaurant</md-button>
+      </div>
+      <div flex> </div>
+      </div>
+   </div>
+   <div flex-gt-xs"35" hide-xs> </div>
+
+   </md-content>
+</div>

@@ -1,0 +1,42 @@
+<md-toolbar>
+   <div class="md-toolbar-tools theme-bg-color">
+      <span flex></span>
+      <h1>Food Bot Dashboard</h1>
+      <span flex></span>
+      <md-button class="md-raised" aria-label="Add a Category" ng-href="/new/restaurants/{{::restaurantID}}/category/">
+         Add a Category
+      </md-button>
+   </div>
+</md-toolbar>
+<md-content>
+   <div layout-gt-xs="row" layout-xs="row">
+      <div flex-gt-xs="15" hide-xs></div>
+      <div flex-gt-xs="70" flex-xs>
+         <md-content>
+         <h2>Categories</h2>
+            <table class="table">
+               <thead>
+                  <tr class="row">
+                     <th flex>#</th>
+                     <th flex>Name</th>
+                     <th flex colspan="2">Actions</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="category in categories | orderBy:'id'" class="row">
+                     <td flex>{{ category.id }}</td>
+                     <td flex ng-click="openCategory(category.id)">{{ category.name }}</td>
+                     <td colspan="2">
+                        <div layout="row">
+                           <md-button class="md-icon-button icon" ng-href="/edit/categories/{{::category.id}}"><i class="material-icons icon">mode_edit</i></md-button>
+                           <md-button class="md-icon-button icon" ng-click="confirmDelete($event, category.id )" ><i class="material-icons icon">delete_forever</i></md-button>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </md-content>
+      </div>
+      <div flex-gt-xs="15" hide-xs></div>
+   </div>
+</md-content>

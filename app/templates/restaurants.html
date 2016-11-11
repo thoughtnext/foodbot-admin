@@ -1,0 +1,44 @@
+<div layout="column" layout-fill ng-if="!auth.isLoggedIn()">
+   <md-toolbar>
+      <div class="md-toolbar-tools theme-bg-color">
+         <span flex></span>
+         <h1>Food Bot Dashboard</h1>
+         <span flex></span>
+         <md-button class="md-raised" aria-label="Add a Restaurant" ng-href="/new/restaurant/">
+            Add a Restaurant
+         </md-button>
+      </div>
+   </md-toolbar>
+   <div layout-gt-xs="row" layout-xs="row">
+      <div flex-gt-xs="15" hide-xs></div>
+      <div flex-gt-xs="70" flex-xs>
+         <md-content>
+         <h2>Restaurants</h2>
+            <table class="table">
+               <thead>
+                  <tr class="row">
+                     <th flex>#</th>
+                     <th flex>Name</th>
+                     <th flex>Subtitle</th>
+                     <th flex colspan="2">Actions</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="restaurant in restaurants | orderBy:'id'" class="row">
+                     <td flex>{{ restaurant.id }}</td>
+                     <td flex ng-click="openRestaurant(restaurant.id)">{{ restaurant.name }}</td>
+                     <td flex>{{ restaurant.description }}</td>
+                     <td colspan="2">
+                        <div layout="row">
+                           <md-button class="md-icon-button icon" ng-href="/edit/restaurants/{{::restaurant.id}}"><i class="material-icons icon">mode_edit</i></md-button>
+                           <md-switch ng-model="restaurant.isEnabled" class="md-primary" aria-label="Switch" ng-change="onChange(restaurant)"></md-switch>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </md-content>
+      </div>
+      <div flex-gt-xs="15" hide-xs></div>
+   </div>
+</div>
