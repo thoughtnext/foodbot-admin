@@ -1,8 +1,9 @@
 (function() {
   var app = angular.module('app');
   app.factory('AppManager', function($q, $http, $log) {
-    var baseUrl = 'http://localhost:8445/'
+    //var baseUrl = 'http://localhost:8445/'
       // var baseUrl = 'http://192.168.1.4:8445/'
+    var baseUrl = 'https://foodiebot.herokuapp.com/'
     return {
       getRestaurants: function() {
         var deferred = $q.defer();
