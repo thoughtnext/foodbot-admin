@@ -11,7 +11,7 @@
         var file = $scope.restaurant.image;
         return AppManager.uploadRestaurantImage(file)
           .then(function(file) {
-            $scope.restaurant.image = file.filename
+            $scope.restaurant.image = file.location
             $scope.editRestaurant($scope.restaurant)
           })
       };
