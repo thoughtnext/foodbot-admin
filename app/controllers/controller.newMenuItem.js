@@ -13,7 +13,7 @@
         var file = $scope.menuItem.image;
         return AppManager.uploadMenuItemImage(file)
           .then(function(file) {
-            $scope.menuItem.image = file.filename
+            $scope.menuItem.image = file.location
             $scope.addMenuItem($scope.menuItem)
           })
       }
