@@ -7,11 +7,16 @@
           $window.history.back();
         })
       }
-      $scope.uploadRestaurantImage = function() {
-        var file = $scope.restaurant.image;
-        return AppManager.uploadRestaurantImage(file)
-          .then(function(file) {
-            $scope.restaurant.image = file.location
+      $scope.uploadRestaurantImage = function(image) {
+        return AppManager.uploadRestaurantImage(image)
+          .then(function(image) {
+            if(image!=undefined){
+              var img = image.location
+              console.log(img)
+              $scope.restaurant.image = img;
+            }
+            else {
+            }
             $scope.editRestaurant($scope.restaurant)
           })
       };

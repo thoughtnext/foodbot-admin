@@ -18,14 +18,18 @@
          <label>Description</label>
          <input ng-model="restaurant.description" type="text">
       </md-input-container>
-      <input type = "file" file-model="restaurant.image" accept="image/*"/>
+      <md-content>
+         <img ng-src="{{restaurant.image}}" height="100" width="200"/>
+      </md-content>
+      <input type = "file" file-model="restaurant.image" accept="image/*"  style="padding-top: 15px; padding-bottom: 15px"/>
+ 
       <div layout="row">
       <div flex> </div>
       <div flex="40">
          <md-button class="theme-bg-color" ng-click="back()" aria-label="back">Back</md-button>
       </div>
       <div flex="40">
-         <md-button class="theme-bg-color" ng-click="uploadRestaurantImage()" aria-label="add">Update</md-button>
+         <md-button class="theme-bg-color" ng-click="uploadRestaurantImage(restaurant)" aria-label="add">Update</md-button>
       </div>
       <div flex> </div>
       </div>

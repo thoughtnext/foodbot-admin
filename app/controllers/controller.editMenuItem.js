@@ -7,11 +7,16 @@
           $window.history.back();
         })
       }
-      $scope.uploadMenuItemImage = function() {
-        var file = $scope.menuItem.image;
-        return AppManager.uploadMenuItemImage(file)
-          .then(function(file) {
-            $scope.menuItem.image = file.location
+      $scope.uploadMenuItemImage = function(image) {
+        return AppManager.uploadMenuItemImage(image)
+          .then(function(image) {
+            if(image!=undefined){
+              var img = image.location
+              console.log(img)
+              $scope.menuItem.image = img;
+            }
+            else {
+            }
             $scope.editMenuItem($scope.menuItem)
           })
       }
@@ -20,3 +25,7 @@
       }
     });
 })();
+
+
+
+          
